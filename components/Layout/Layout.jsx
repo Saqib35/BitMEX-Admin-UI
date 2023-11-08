@@ -16,6 +16,8 @@ export default function Layout({ children }) {
 
   return (
     <>
+        
+          
       {!shouldShowHeaderSidebarFooter && (
         <>
           <Header />
