@@ -24,6 +24,7 @@ export default function SideBar() {
           </a >
           <ul className="menu-content">
             <li className="active">
+              
               <Link href="/"><i className="bx bx-right-arrow-alt" />
               <span className="menu-item" data-i18n="Analytics">Analytics</span>
               </Link>
@@ -41,7 +42,8 @@ export default function SideBar() {
                 <li>
                   <Link href="/product-management"><i className="bx bx-right-arrow-alt" /><span className="menu-item" data-i18n="Third Level">Product List</span></Link>
                 </li>
-                <li><a href="#"><i className="bx bx-right-arrow-alt" /><span className="menu-item" data-i18n="Third Level">Risk Control Manag...</span></a>
+                <li>
+                  <a href="#"><i className="bx bx-right-arrow-alt" /><span className="menu-item" data-i18n="Third Level">Risk Control Manag...</span></a>
                 </li>
               </ul>
             </li>
@@ -49,9 +51,11 @@ export default function SideBar() {
             <li>
               <a href="#"><i className="bx bx-right-arrow-alt" /><span className="menu-item" data-i18n="Second Level">Order Manage...</span></a>
               <ul className="menu-content">
-                <li><a href="#"><i className="bx bx-right-arrow-alt" /><span className="menu-item" data-i18n="Third Level">Transection Flow</span></a>
+                <li>
+                 <Link href="transection-flow-orders"><i className="bx bx-right-arrow-alt" /><span className="menu-item" data-i18n="Third Level">Transection Flow</span></Link>
                 </li>
-                <li><a href="#"><i className="bx bx-right-arrow-alt" /><span className="menu-item" data-i18n="Third Level">Closing log</span></a>
+                <li>
+                  <a href="#"><i className="bx bx-right-arrow-alt" /><span className="menu-item" data-i18n="Third Level">Closing log</span></a>
                 </li>
               </ul>
             </li>
@@ -59,6 +63,40 @@ export default function SideBar() {
   
           </ul>
         </li>
+
+
+        <li className=" nav-item"><a href="#"><i className="bx bx-menu" /><span className="menu-title" data-i18n="Menu Levels">User Center</span></a>
+          <ul className="menu-content">
+            
+             <li>
+              <a href="#"><i className="bx bx-right-arrow-alt" /><span className="menu-item" data-i18n="Second Level">Member Manage..</span></a>
+              <ul className="menu-content">
+                {/* <li>
+                  <Link href="/product-management"><i className="bx bx-right-arrow-alt" /><span className="menu-item" data-i18n="Third Level">Product List</span></Link>
+                </li>
+                */}
+              
+              </ul>
+            </li>
+
+            <li>
+              <a href="#"><i className="bx bx-right-arrow-alt" /><span className="menu-item" data-i18n="Second Level">Financial Manage...</span></a>
+              <ul className="menu-content">
+                <li>
+                 <Link href="recharge-record-user-center"><i className="bx bx-right-arrow-alt" /><span className="menu-item" data-i18n="Third Level">Recharge Record</span></Link>
+                </li>
+                <li>
+                 <Link href="withdrawal-record-user-center"><i className="bx bx-right-arrow-alt" /><span className="menu-item" data-i18n="Third Level">WithDrawal Record</span></Link>
+                </li>
+                
+              </ul>
+            </li>
+  
+  
+          </ul>
+        </li>
+
+
       </ul>
     </div>
   </div>
