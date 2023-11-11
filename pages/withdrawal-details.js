@@ -15,14 +15,19 @@ export default function Product() {
   
 
   const [data, setData] = useState([]);
+
+
   const router = useRouter();
+
+  const { id } = router.query;
+
 
   useEffect(() => {
     const fetchData = async () => {
       try {  
-        const response = await axios.get('https://bitapi.mfhsoltech.com/api/withdrawal/index');
-        setData(response.data.withdrawal_records);
-      } catch (error) {
+        const response = await axios.get(`https://bitapi.mfhsoltech.com/api/withdrawalDetails/${id}`);
+        setData(response.data); 
+        } catch (error) {
         console.error('Error fetching data:', error);
       }
     };
@@ -31,11 +36,7 @@ export default function Product() {
   }, []);
 
 
-  const handleButtonClick = (id) => {
-    
-    router.push(`/withdrawal-details?id=${id}`);
-  };
-
+ 
 
   return (
     <div>
@@ -55,7 +56,7 @@ export default function Product() {
                   <div className="card widget-todo">
                     <div className="card-header border-bottom d-flex justify-content-between align-items-center flex-wrap">
                       <h4 className="card-title d-flex mb-25 mb-sm-0">
-                        <i className="bx bx-check font-medium-5 pl-25 pr-75" /> Record WithDrawal
+                        <i className="bx bx-check font-medium-5 pl-25 pr-75" /> Record WithDrawal Details
                       </h4>
                       
                     </div>
@@ -81,8 +82,8 @@ export default function Product() {
                       {data.map((record) => (
                         <tr key={record.id}>
                             <td>{record.serialNum}</td>
-                            <td>{record.MemberId}</td>
-                            <td>{record.username}</td>
+                            <td></td>
+                            <td></td>
                             <td>{record.withdrawalAmount}</td>
                             <td>{record.handlingFee}</td>
                             <td>{record.actualArrival}</td>
@@ -91,7 +92,9 @@ export default function Product() {
                             <td>{record.created_at}</td>
                             <td>{record.processingProgress}</td>
                             <td>
-                              <button className='btn btn-success mb-1' onClick={() => handleButtonClick(record.id)}>Click me Details</button>
+                              
+                              <button className='btn btn-success mb-1'>Check</button>
+
                               <button className='btn btn-danger'><i className='fa fa-trash'></i></button>
                             </td>
 
