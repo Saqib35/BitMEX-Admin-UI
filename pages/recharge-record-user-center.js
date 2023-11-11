@@ -76,8 +76,8 @@ export default function Product() {
                       {data.map((record) => (
                         <tr key={record.id}>
                             <td>{record.id}</td>
-                            <td></td>
-                            <td></td>
+                            <td>{record.MemberId}</td>
+                            <td>{record.username}</td>
                             <td>{record.rechargeAmount}</td>
                             <td>{record.giftAmount}</td>
                             <td>{record.paymentMethod}</td>
