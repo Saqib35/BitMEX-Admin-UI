@@ -13,15 +13,19 @@ export default function Home() {
   const [apiDataCom, setApiDataCom] = useState([]);
   const [apiDataMonth, setApiDataMonth] = useState([]);
   const [apiDataReal, setApiDataReal] = useState([]);
-  
   const { session } = useSession();
   const router = useRouter();
+
   useEffect(() => {
-    if (session && !session.id) {
-      // later used this code of line saqib
-      // router.push('/login');
-    }
-  }, [session]);
+      const token = localStorage.getItem('token');
+  
+      if (!token) {
+        
+        router.push('/login');
+      }
+      
+  }, [router]);
+
 
   useEffect(() => {
     async function fetchData() {

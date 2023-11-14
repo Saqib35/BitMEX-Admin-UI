@@ -16,88 +16,81 @@ export default function SideBar() {
     </div>
     <div className="shadow-bottom" />
     <div className="main-menu-content">
-      <ul className="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation" data-icon-style>
-        <li className=" nav-item">
-          <a href="/">
-            <i className="bx bx-home-alt" />
-            <span className="menu-title" data-i18n="Dashboard">Background Home</span>
-          </a >
-          <ul className="menu-content">
-            <li className="active">
-              
-              <Link href="/"><i className="bx bx-right-arrow-alt" />
-              <span className="menu-item" data-i18n="Analytics">Analytics</span>
-              </Link>
-              
-            </li>
-          </ul>
-        </li>
-        
-         <li className=" nav-item"><a href="#"><i className="bx bx-menu" /><span className="menu-title" data-i18n="Menu Levels">Product System</span></a>
-          <ul className="menu-content">
-            
-             <li>
-              <a href="#"><i className="bx bx-right-arrow-alt" /><span className="menu-item" data-i18n="Second Level">Product Manage..</span></a>
-              <ul className="menu-content">
-                <li>
-                  <Link href="/product-management"><i className="bx bx-right-arrow-alt" /><span className="menu-item" data-i18n="Third Level">Product List</span></Link>
-                </li>
-                <li>
-                  <a href="#"><i className="bx bx-right-arrow-alt" /><span className="menu-item" data-i18n="Third Level">Risk Control Manag...</span></a>
-                </li>
-              </ul>
-            </li>
-
-            <li>
-              <a href="#"><i className="bx bx-right-arrow-alt" /><span className="menu-item" data-i18n="Second Level">Order Manage...</span></a>
-              <ul className="menu-content">
-                <li>
-                 <Link href="transection-flow-orders"><i className="bx bx-right-arrow-alt" /><span className="menu-item" data-i18n="Third Level">Transection Flow</span></Link>
-                </li>
-                <li>
-                  <a href="#"><i className="bx bx-right-arrow-alt" /><span className="menu-item" data-i18n="Third Level">Closing log</span></a>
-                </li>
-              </ul>
-            </li>
-  
-  
-          </ul>
-        </li>
+    <div className="sidebar">
+      <div className="list-group">
+      
 
 
-        <li className=" nav-item"><a href="#"><i className="bx bx-menu" /><span className="menu-title" data-i18n="Menu Levels">User Center</span></a>
-          <ul className="menu-content">
-            
-             <li>
-              <a href="#"><i className="bx bx-right-arrow-alt" /><span className="menu-item" data-i18n="Second Level">Member Manage..</span></a>
-              <ul className="menu-content">
-                {/* <li>
-                  <Link href="/product-management"><i className="bx bx-right-arrow-alt" /><span className="menu-item" data-i18n="Third Level">Product List</span></Link>
-                </li>
-                */}
-              
-              </ul>
-            </li>
+        <div className="list-group-item list-group-item-action dropdown">
+          <a
+            href="#"
+            className="dropdown-toggle"
+            role="button"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+             <i className="bx bx-home-alt" /> Background Home
+          </a>
+          <div className="dropdown-menu">
+            <Link href="/" legacyBehavior>
+              <a className="dropdown-item">Analytics</a>
+            </Link>
+           
+          </div>
+        </div>
 
-            <li>
-              <a href="#"><i className="bx bx-right-arrow-alt" /><span className="menu-item" data-i18n="Second Level">Financial Manage...</span></a>
-              <ul className="menu-content">
-                <li>
-                 <Link href="recharge-record-user-center"><i className="bx bx-right-arrow-alt" /><span className="menu-item" data-i18n="Third Level">Recharge Record</span></Link>
-                </li>
-                <li>
-                 <Link href="withdrawal-record-user-center"><i className="bx bx-right-arrow-alt" /><span className="menu-item" data-i18n="Third Level">WithDrawal Record</span></Link>
-                </li>
+
+        <div className="list-group-item list-group-item-action dropdown">
+          <a
+            href="#"
+            className="dropdown-toggle"
+            role="button"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+             <i className="bx bx-home-alt" /> Product System
+          </a>
+          <div className="dropdown-menu">
+            <Link href="/product-management" legacyBehavior>
+              <a className="dropdown-item">Product List</a>
+            </Link>
+            <Link href="/transection-flow-orders" legacyBehavior>
+              <a className="dropdown-item">Transection Flow</a>
+            </Link>
+           
+          </div>
+        </div>
+
+      
+
+
+        <div className="list-group-item list-group-item-action dropdown">
+          <a
+            href="#"
+            className="dropdown-toggle"
+            role="button"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+             <i className="bx bx-home-alt" /> User Center
+          </a>
+          <div className="dropdown-menu">
+            <Link href="/recharge-record-user-center" legacyBehavior>
+              <a className="dropdown-item">Recharge Record</a>
+            </Link>
+            <Link href="/withdrawal-record-user-center" legacyBehavior>
+              <a className="dropdown-item">WithDrawal Record</a>
+            </Link>
+           
+          </div>
+        </div>
                 
-              </ul>
-            </li>
-  
-  
-          </ul>
-        </li>
-
-
-      </ul>
+      </div>
+    </div>
+    
     </div>
   </div>
   )
