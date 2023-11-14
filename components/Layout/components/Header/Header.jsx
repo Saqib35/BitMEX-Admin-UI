@@ -1,6 +1,42 @@
-import React from 'react'
-
+import React , { useEffect } from 'react'
+import { useRouter } from 'next/router';
 export default function Header() {
+
+
+  const router = useRouter();
+
+  const handleLogout = () => {
+  
+
+    const token = localStorage.getItem('token');
+
+      // if (token) {
+      //   try {
+      //     const response = await fetch('/api/logout', {
+      //       method: 'POST',
+      //       headers: {
+      //         'Content-Type': 'application/json',
+      //         Authorization: `Bearer ${token}`,
+      //       },
+      //     });
+
+      //     if (response.ok) {
+      //       console.log('Token invalidated on the server');
+      //     } else {
+      //       console.error('Failed to invalidate token on the server');
+      //     }
+      //   } catch (error) {
+      //     console.error('An error occurred during logout:', error);
+      //   }
+      // }
+
+      localStorage.removeItem('token');
+      router.push('/login');
+  
+  };
+
+
+
   return (
     <div>
         <div className="header-navbar-shadow" />
@@ -13,25 +49,12 @@ export default function Header() {
                     <li className="nav-item mobile-menu d-xl-none mr-auto"><a className="nav-link nav-menu-main menu-toggle hidden-xs" href="#"><i className="ficon bx bx-menu" /></a></li>
                   </ul>
                   <ul className="nav navbar-nav bookmark-icons">
-                    {/* <li className="nav-item d-none d-lg-block"><a className="nav-link" href="app-email.html" data-toggle="tooltip" data-placement="top" title="Email"><i className="ficon bx bx-envelope" /></a></li> */}
-                    {/* <li className="nav-item d-none d-lg-block"><a className="nav-link" href="app-chat.html" data-toggle="tooltip" data-placement="top" title="Chat"><i className="ficon bx bx-chat" /></a></li> */}
-                    {/* <li className="nav-item d-none d-lg-block"><a className="nav-link" href="app-todo.html" data-toggle="tooltip" data-placement="top" title="Todo"><i className="ficon bx bx-check-circle" /></a></li> */}
-                    {/* <li className="nav-item d-none d-lg-block"><a className="nav-link" href="app-calendar.html" data-toggle="tooltip" data-placement="top" title="Calendar"><i className="ficon bx bx-calendar-alt" /></a></li> */}
+                 
                   </ul>
-                  {/* <ul className="nav navbar-nav">
-                    <li className="nav-item d-none d-lg-block"><a className="nav-link bookmark-star"><i className="ficon bx bx-star warning" /></a>
-                      <div className="bookmark-input search-input">
-                        <div className="bookmark-input-icon"><i className="bx bx-search primary" /></div>
-                        <input className="form-control input" type="text" placeholder="Explore Frest..." tabIndex={0} data-search="template-search" />
-                        <ul className="search-list" />
-                      </div>
-                    </li>
-                  </ul> */}
+               
                 </div>
                 <ul className="nav navbar-nav float-right">
-                  {/* <li className="dropdown dropdown-language nav-item"><a className="dropdown-toggle nav-link" id="dropdown-flag" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i className="flag-icon flag-icon-us" /><span className="selected-language">English</span></a>
-                    <div className="dropdown-menu" aria-labelledby="dropdown-flag"><a className="dropdown-item" href="#" data-language="en"><i className="flag-icon flag-icon-us mr-50" /> English</a><a className="dropdown-item" href="#" data-language="fr"><i className="flag-icon flag-icon-fr mr-50" /> French</a><a className="dropdown-item" href="#" data-language="de"><i className="flag-icon flag-icon-de mr-50" /> German</a><a className="dropdown-item" href="#" data-language="pt"><i className="flag-icon flag-icon-pt mr-50" /> Portuguese</a></div>
-                  </li> */}
+              
                   <li className="nav-item d-none d-lg-block"><a className="nav-link nav-link-expand"><i className="ficon bx bx-fullscreen" /></a></li>
                   <li className="nav-item nav-search"><a className="nav-link nav-link-search"><i className="ficon bx bx-search" /></a>
                     <div className="search-input">
@@ -65,8 +88,8 @@ export default function Header() {
                       <div className="user-nav d-sm-flex d-none"><span className="user-name">Admin</span><span className="user-status text-muted">Available</span></div><span><img className="round" src="images/portrait/small/avatar-s-11.jpg" alt="avatar" height={40} width={40} /></span>
                     </a>
                     <div className="dropdown-menu dropdown-menu-right pb-0">
-                      <a className="dropdown-item" href="page-user-profile.html"><i className="bx bx-user mr-50" /> Edit Profile</a>
-                      <div className="dropdown-divider mb-0" /><a className="dropdown-item" href="auth-login.html"><i className="bx bx-power-off mr-50" /> Logout</a>
+                      <a className="dropdown-item" href=""><i className="bx bx-user mr-50" /> Edit Profile</a>
+                      <div className="dropdown-divider mb-0" /><a className="dropdown-item" href="#" onClick={handleLogout}><i className="bx bx-power-off mr-50" /> Logout</a>
                     </div>
                   </li>
                 </ul>
