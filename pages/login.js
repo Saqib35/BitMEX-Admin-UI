@@ -28,7 +28,7 @@ export default function Login() {
   const handleLogin = async () => {
     try {
       
-      const response = await fetch('/api/login', {
+      const response = await fetch('https://bitapi.mfhsoltech.com/api/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -36,12 +36,13 @@ export default function Login() {
         body: JSON.stringify({ email, password }),
       });
 
-      if (!response.ok) {
+      if (response.ok) {
         // Handle successful login
-        
-        localStorage.setItem('token', 'true');
+        const data = await response.json();
+        alert(data.access_token);
+        localStorage.setItem('token', data.access_token);
         router.push('/');
-        console.log('Login successful');
+        // console.log(data.access_token);
         toast.success('Access Granted'); 
      
       } else {
@@ -80,10 +81,10 @@ export default function Login() {
                             <form>
                               <div className="form-group mb-50">
                                 <label className="text-bold-600" htmlFor="exampleInputEmail1">Email address</label>
-                                <input type="email" className="form-control" value={email}  onChange={(e) => setEmail(e.target.value)} id="exampleInputEmail1" placeholder="Email address" /></div>
+                                <input type="email" required className="form-control" value={email}  onChange={(e) => setEmail(e.target.value)} id="exampleInputEmail1" placeholder="Email address" /></div>
                               <div className="form-group">
                                 <label className="text-bold-600" htmlFor="exampleInputPassword1">Password</label>
-                                <input type="password" className="form-control" id="exampleInputPassword1"  value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" />
+                                <input type="password" required className="form-control" id="exampleInputPassword1"  value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" />
                               </div>
                               <button type="button" onClick={handleLogin} className="btn btn-primary glow w-100 position-relative">Login<i id="icon-arrow" className="bx bx-right-arrow-alt" /></button>
                                </form>

@@ -27,6 +27,11 @@ export default function Home() {
   }, [router]);
 
 
+
+
+  
+
+
   useEffect(() => {
     async function fetchData() {
       try {
@@ -120,55 +125,77 @@ export default function Home() {
             <section id="dashboard-analytics">
               <div className="row">
                 {/* Website Analytics Starts*/}
-                <div className="col-xl-6 col-md-6 col-sm-12 dashboard-referral-impression">
-                  <div className="row">
-                    {/* Referral Chart Starts*/}
-                    <div className="col-xl-12 col-12">
-                      <div className="card">
-                        <div className="card-content">
-                        <div className="card-body text-center pb-0">
+        
+
+                <div className="col-md-4">
+                    <div className="card">
+                      <div className="card-body d-flex align-items-center justify-content-between">
+                        <div className="d-flex align-items-center">
+                          <div className="avatar bg-rgba-primary m-0 p-25 mr-75 mr-xl-2">
+                            <div className="avatar-content">
+                              <i className="bx bx-dollar text-success font-medium-2" />
+                            </div>
+                          </div>
+                          <div className="total-amount">
                           {data ? (
-                            <>
-                              <h2>Loss: {data.total_loss} - Profit: {data.total_profit}</h2>
-                              <span className="text-muted">Total Loss & Profit</span>
-                             
-                            </>
-                          ) : (
-                            <p>Loading data...</p>
-                          )}
-                           <div id="success-line-chart" />
+                              <h5 className="mb-0">{data.total_profit}</h5>
+                            ) : (
+                              <p>Loading profit data...</p>
+                            )}                            
+                            <small className="text-muted">Total Profit</small>
+                          </div>
                         </div>
-                        </div>
+                      
                       </div>
                     </div>
                   </div>
-                </div>
-                <div className="col-xl-6 col-md-12 col-sm-12">
-                  <div className="row">
-                    {/* Conversion Chart Starts*/}
-                    <div className="col-xl-12 col-md-6 col-12">
-                      <div className="card">
-                        <div className="card-header d-flex justify-content-between pb-xl-0 pt-xl-1">
-                          <div className="conversion-title">
-                            <h4 className="card-title">Total Users</h4>
+
+                  <div className="col-md-4">
+                    <div className="card">
+                      <div className="card-body d-flex align-items-center justify-content-between">
+                        <div className="d-flex align-items-center">
+                          <div className="avatar bg-rgba-primary m-0 p-25 mr-75 mr-xl-2">
+                            <div className="avatar-content">
+                              <i className="bx bx-dollar text-success font-medium-2" />
+                            </div>
                           </div>
-                          <div className="conversion-rate">
+                          <div className="total-amount">
                           {data ? (
-                              <h2>{data.total_users}</h2>
+                              <h5 className="mb-0">{data.total_loss}</h5>
+                            ) : (
+                              <p>Loading loss data...</p>
+                            )}                            
+                            <small className="text-muted">Total Loss</small>
+                          </div>
+                        </div>
+                      
+                      </div>
+                    </div>
+                  </div>
+
+                <div className="col-md-4">
+                    <div className="card">
+                      <div className="card-body d-flex align-items-center justify-content-between">
+                        <div className="d-flex align-items-center">
+                          <div className="avatar bg-rgba-primary m-0 p-25 mr-75 mr-xl-2">
+                            <div className="avatar-content">
+                              <i className="bx bx-user text-success font-medium-2" />
+                            </div>
+                          </div>
+                          <div className="total-amount">
+                          {data ? (
+                              <h5 className="mb-0">{data.total_users}</h5>
                             ) : (
                               <p>Loading user data...</p>
-                            )}
+                            )}                            
+                            <small className="text-muted">Total Users</small>
                           </div>
                         </div>
-                        <div className="card-content">
-                          <div className="card-body text-center">
-                            <div id="bar-negative-chart" />
-                          </div>
-                        </div>
+                      
                       </div>
                     </div>
                   </div>
-                </div>
+              
               </div>
               <div className="row">
                    <div className="col-xl-12 col-md-6 col-12">

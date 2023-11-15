@@ -1,37 +1,39 @@
 import React , { useEffect } from 'react'
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 export default function Header() {
 
 
   const router = useRouter();
 
-  const handleLogout = () => {
+  const handleLogout = async () => {
   
 
     const token = localStorage.getItem('token');
 
-      // if (token) {
-      //   try {
-      //     const response = await fetch('/api/logout', {
-      //       method: 'POST',
-      //       headers: {
-      //         'Content-Type': 'application/json',
-      //         Authorization: `Bearer ${token}`,
-      //       },
-      //     });
+      if (token) {
+        try {
+          const response = await fetch('https://bitapi.mfhsoltech.com/api/logout', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              Authorization: `Bearer ${token}`,
+            },
+          });
 
-      //     if (response.ok) {
-      //       console.log('Token invalidated on the server');
-      //     } else {
-      //       console.error('Failed to invalidate token on the server');
-      //     }
-      //   } catch (error) {
-      //     console.error('An error occurred during logout:', error);
-      //   }
-      // }
+          if (response.ok) {
+            console.log('Token invalidated on the server');
+          } else {
+            console.error('Failed to invalidate token on the server');
+          }
+        } catch (error) {
+          console.error('An error occurred during logout:', error);
+        }
+        localStorage.removeItem('token');
+        router.push('/login');
+      }
 
-      localStorage.removeItem('token');
-      router.push('/login');
+     
   
   };
 
@@ -56,14 +58,7 @@ export default function Header() {
                 <ul className="nav navbar-nav float-right">
               
                   <li className="nav-item d-none d-lg-block"><a className="nav-link nav-link-expand"><i className="ficon bx bx-fullscreen" /></a></li>
-                  <li className="nav-item nav-search"><a className="nav-link nav-link-search"><i className="ficon bx bx-search" /></a>
-                    <div className="search-input">
-                      <div className="search-input-icon"><i className="bx bx-search primary" /></div>
-                      <input className="input" type="text" placeholder="Explore Frest..." tabIndex={-1} data-search="template-search" />
-                      <div className="search-input-close"><i className="bx bx-x" /></div>
-                      <ul className="search-list" />
-                    </div>
-                  </li>
+                 
                   <li className="dropdown dropdown-notification nav-item"><a className="nav-link nav-link-label" href="#" data-toggle="dropdown"><i className="ficon bx bx-bell bx-tada bx-flip-horizontal" /><span className="badge badge-pill badge-danger badge-up">5</span></a>
                     <ul className="dropdown-menu dropdown-menu-media dropdown-menu-right">
                       <li className="dropdown-menu-header">
@@ -88,7 +83,7 @@ export default function Header() {
                       <div className="user-nav d-sm-flex d-none"><span className="user-name">Admin</span><span className="user-status text-muted">Available</span></div><span><img className="round" src="images/portrait/small/avatar-s-11.jpg" alt="avatar" height={40} width={40} /></span>
                     </a>
                     <div className="dropdown-menu dropdown-menu-right pb-0">
-                      <a className="dropdown-item" href=""><i className="bx bx-user mr-50" /> Edit Profile</a>
+                      <Link className="dropdown-item" href="user-profile"><i className="bx bx-user mr-50" /> Edit Profile</Link>
                       <div className="dropdown-divider mb-0" /><a className="dropdown-item" href="#" onClick={handleLogout}><i className="bx bx-power-off mr-50" /> Logout</a>
                     </div>
                   </li>
