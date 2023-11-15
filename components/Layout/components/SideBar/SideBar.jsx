@@ -50,7 +50,7 @@ export default function SideBar() {
             aria-haspopup="true"
             aria-expanded="false"
           >
-             <i className="bx bx-home-alt" /> Product System
+             <i className="bx bx-slider-alt" /> Product System
           </a>
           <div className="dropdown-menu">
             <Link href="/product-management" legacyBehavior>
@@ -75,7 +75,7 @@ export default function SideBar() {
             aria-haspopup="true"
             aria-expanded="false"
           >
-             <i className="bx bx-home-alt" /> User Center
+             <i className="bx bx-user-voice" /> User Center
           </a>
           <div className="dropdown-menu">
             <Link href="/recharge-record-user-center" legacyBehavior>
@@ -86,6 +86,13 @@ export default function SideBar() {
             </Link>
            
           </div>
+        </div>
+
+        <div  className="list-group-item list-group-item-action dropdown">
+          <Link href="/">
+             <i className="bx bxs-cog" /> Settings
+          </Link>
+         
         </div>
                 
       </div>

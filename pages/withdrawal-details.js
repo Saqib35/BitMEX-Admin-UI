@@ -7,7 +7,7 @@ import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/router'
 import { toast } from 'react-toastify';
 import axios from 'axios';
-
+import DataTable from '../components/DataTableWithdrawalDetails';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -26,7 +26,8 @@ export default function Product() {
     const fetchData = async () => {
       try {  
         const response = await axios.get(`https://bitapi.mfhsoltech.com/api/withdrawalDetails/${id}`);
-        setData(response.data); 
+        setData(response.data);
+ 
         } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -60,52 +61,8 @@ export default function Product() {
                       </h4>
                       
                     </div>
-                    <div className="card-body px-0 py-1">
-                    {data.length > 0 ? (
-                    <table className="table table-responsive">
-                      <thead>
-                        <tr>
-                          <th scope="col" style={{ whiteSpace: 'nowrap' }}>serial number</th>
-                          <th scope="col" style={{ whiteSpace: 'nowrap' }}>Account</th>
-                          <th scope="col" style={{ whiteSpace: 'nowrap' }}>Name</th>
-                          <th scope="col" style={{ whiteSpace: 'nowrap' }}>Withdrawal amount (yuan)</th>
-                          <th scope="col" style={{ whiteSpace: 'nowrap' }}>handling fee</th>
-                          <th scope="col" style={{ whiteSpace: 'nowrap' }}>Actual arrival (yuan)</th>
-                          <th scope="col" style={{ whiteSpace: 'nowrap' }}>Bank of deposit</th>
-                          <th scope="col" style={{ whiteSpace: 'nowrap' }}>Denial Reason</th>
-                          <th scope="col" style={{ whiteSpace: 'nowrap' }}>Submission time</th>
-                          <th scope="col" style={{ whiteSpace: 'nowrap' }}>Processing progress</th>
-                          <th scope="col" style={{ whiteSpace: 'nowrap' }}>operate/Action</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                      {data.map((record) => (
-                        <tr key={record.id}>
-                            <td>{record.serialNum}</td>
-                            <td></td>
-                            <td></td>
-                            <td>{record.withdrawalAmount}</td>
-                            <td>{record.handlingFee}</td>
-                            <td>{record.actualArrival}</td>
-                            <td>{record.bankDeposit}</td>
-                            <td>{record.denialReason}</td>
-                            <td>{record.created_at}</td>
-                            <td>{record.processingProgress}</td>
-                            <td>
-                              
-                              <button className='btn btn-success mb-1'>Check</button>
-
-                              <button className='btn btn-danger'><i className='fa fa-trash'></i></button>
-                            </td>
-
-                        </tr>
-                         ))}
-                      </tbody>
-                     
-                    </table>   
-                       ) : (
-                        <p>Loading...</p>
-                     )} 
+                    <div className="card-body px-0 py-1 p-3">
+                       <DataTable data={data}/>
                     </div>
                    <div>
                    </div>

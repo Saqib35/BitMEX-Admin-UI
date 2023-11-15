@@ -5,7 +5,9 @@ import { toast } from 'react-toastify';
 
 
 
-const CreateProductForm = () => {
+  export default function CreateProductForm () {
+
+
   const [formData, setFormData] = useState({
     name: '',
     ProductCode: '',
@@ -319,7 +321,7 @@ const handleSubmit = async (e) => {
                               {errors.RandomFluctuationRange && <p className="error text-danger">{errors.RandomFluctuationRange}</p>}
                             </div>
 
-                            <div className='col-md-6'>
+                            <div className='col-md-12 mt-5'>
                                <label>TimePlay Interval One:</label>
                                 <input
                                   type="number"
@@ -366,7 +368,7 @@ const handleSubmit = async (e) => {
                             
 
 
-                            <div className='col-md-6'>
+                            <div className='col-md-12 mt-5'>
                                <label>Minimum Limit Amount One:</label>
                                 <input
                                   type="number"
@@ -414,7 +416,7 @@ const handleSubmit = async (e) => {
                             </div>
 
 
-                            <div className='col-md-6'>
+                            <div className='col-md-12 mt-5'>
                                <label>Profit And Loss Ratio One:</label>
                                 <input
                                   type="number"
@@ -458,7 +460,7 @@ const handleSubmit = async (e) => {
                               
                             </div>
 
-                            <div className='col-md-6'>
+                            <div className='col-md-12 mt-5'>
                                <label>Loss Ratio One:</label>
                                 <input
                                   type="number"
@@ -505,7 +507,7 @@ const handleSubmit = async (e) => {
                             </div>
                             
 
-                            <div className='col-md-6'>
+                            <div className='col-md-12 mt-5'>
                                <label>Earnings Floating Ratio Range:</label>
                                 <input
                                   type="number"
@@ -516,7 +518,7 @@ const handleSubmit = async (e) => {
                               
                             </div>
                             
-                            <div className='col-md-6'>
+                            <div className='col-md-12 mb-5'>
                                <label>Earnings Floating Under Loss:</label>
                                 <input
                                   type="number"
@@ -595,7 +597,7 @@ const handleSubmit = async (e) => {
                               
                             </div>
 
-                            <div className='col-md-6'>
+                            <div className='col-md-12'>
                                <label>Market Opening Time Sunday:</label>
                                 <input
                                   type="text"
@@ -607,7 +609,7 @@ const handleSubmit = async (e) => {
                               
                             </div>
                              
-                            <div className="text-center">
+                            <div className="text-center ml-1">
                               <button type="submit" className="btn btn-success mt-3"> {isLoading ? 'Loading...' : 'Create Product'} </button>
                             </div>
 
@@ -630,4 +632,3 @@ const handleSubmit = async (e) => {
   );
 };
 
-export default CreateProductForm;

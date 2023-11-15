@@ -6,9 +6,10 @@ import { useEffect, useState } from 'react'
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/router'
 import Link from 'next/link';
-
 const inter = Inter({ subsets: ['latin'] })
 import axios from 'axios';
+import DataTable from '../components/DataTableProductList';
+
 
 export default function Product() {
   
@@ -51,69 +52,10 @@ export default function Product() {
                         <i className="bx bx-check font-medium-5 pl-25 pr-75" /> Product List
                       </h4>
                     </div>
-                    <div className="card-body px-0 py-1">
-                    <table className="table table-responsive">
-                      <thead>
-                        <tr>
-                          <th scope="col" style={{ whiteSpace: 'nowrap' }}>Refresh</th>
-                          <th scope="col" style={{ whiteSpace: 'nowrap' }}>Product title</th>
-                          <th scope="col" style={{ whiteSpace: 'nowrap' }}>Product code</th>
-                          <th scope="col" style={{ whiteSpace: 'nowrap' }}>Home page recommendation</th>
-                          <th scope="col" style={{ whiteSpace: 'nowrap' }}>State</th>
-                          <th scope="col" style={{ whiteSpace: 'nowrap' }}>Ramdom value</th>
-                          <th scope="col" style={{ whiteSpace: 'nowrap' }}>Minimum risk control</th>
-                          <th scope="col" style={{ whiteSpace: 'nowrap' }}>Maximum risk control</th>
-                          <th scope="col" style={{ whiteSpace: 'nowrap' }}>Operate</th>
-                          <th scope="col" style={{ whiteSpace: 'nowrap' }}>Close market</th>
-                          <th scope="col" style={{ whiteSpace: 'nowrap' }}>Edit</th>
-                          <th scope="col" style={{ whiteSpace: 'nowrap' }}>Delete</th>
-                          <th scope="col" style={{ whiteSpace: 'nowrap' }}>Show profit</th>
-                          <th scope="col" style={{ whiteSpace: 'nowrap' }}>Show loss</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                      {data.map((product) => (
-                        <tr key={product.id}>
-                          <td className="no-line-break"> 0 </td>
-                          <td className="no-line-break">{product.name}</td>
-                          <td className="no-line-break">{product.ProductCode}</td>
-                          <td className="no-line-break">
-                            {product.HomePageRecommendation === 1 ? (
-                               <p className='btn btn-success'>Recommended</p>
-                            ) : product.HomePageRecommendation === 0 ? (
-                              <p className='btn btn-primary'>Not recommended</p>
-                            ) : (
-                              <p className='btn btn-danger'>Something went wrong</p>
-                            )}
-
-
-                          </td>
-                          <td className="no-line-break">open market/ close</td>
-                          <td>{product.HomePageRecommendation}</td>
-                          <td>{product.HomePageRecommendation}</td>
-                          <td>{product.HomePageRecommendation}</td>
-                          <td>
-                            <button className="btn btn-danger">Turn On</button>
-                          </td>
-                          <td>
-                            <button className="btn btn-danger">Click to Close the Market</button>
-                          </td>
-                          <td>
-                            <button className="btn btn-primary">Edit</button>
-                          </td>
-                          <td>
-                            <button className="btn btn-danger">Delete</button>
-                          </td>
-                          <td>
-                            <button className="btn btn-success">Show profit</button>
-                          </td>
-                          <td>
-                            <button className="btn btn-secondary">Obvious loss</button>
-                          </td>
-                        </tr>
-                         ))}
-                      </tbody>
-                    </table>    
+                    <div className="card-body px-0 py-1 p-3">
+                 
+                        <DataTable data={data}/>
+        
                     </div>
                   </div>
                 </div>
@@ -121,6 +63,7 @@ export default function Product() {
             </div>
           </div>
         </section>
+        
         {/* Dashboard Analytics end */}
       </div>
     </div>

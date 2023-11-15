@@ -7,6 +7,7 @@ import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/router'
 import { toast } from 'react-toastify';
 import axios from 'axios';
+import DataTable from '../components/DataTableRechargeRecord';
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -52,74 +53,8 @@ export default function Product() {
                       </h4>
                       
                     </div>
-                    <div className="card-body px-0 py-1">
-                    {data.length > 0 ? (
-                    <table className="table table-responsive">
-                      <thead>
-                        <tr>
-                                          
-                          <th scope="col" style={{ whiteSpace: 'nowrap' }}>Order Number</th>
-                          <th scope="col" style={{ whiteSpace: 'nowrap' }}>Account</th>
-                          <th scope="col" style={{ whiteSpace: 'nowrap' }}>Name</th>
-                          <th scope="col" style={{ whiteSpace: 'nowrap' }}>Recharge Amount (Yuan)</th>
-                          <th scope="col" style={{ whiteSpace: 'nowrap' }}>Gift Amount (Yuan)</th>
-                          <th scope="col" style={{ whiteSpace: 'nowrap' }}>Payment Method</th>
-                          <th scope="col" style={{ whiteSpace: 'nowrap' }}>Submission Time</th>
-                          <th scope="col" style={{ whiteSpace: 'nowrap' }}>State</th>
-                          <th scope="col" style={{ whiteSpace: 'nowrap' }}>Reason for Rejection</th>
-                          <th scope="col" style={{ whiteSpace: 'nowrap' }}>Action</th>
-                          
-                            
-                        </tr>
-                      </thead>
-                      <tbody>
-                      {data.map((record) => (
-                        <tr key={record.id}>
-                            <td>{record.id}</td>
-                            <td>{record.MemberId}</td>
-                            <td>{record.username}</td>
-                            <td>{record.rechargeAmount}</td>
-                            <td>{record.giftAmount}</td>
-                            <td>{record.paymentMethod}</td>
-                            <td>{record.submissionTime}</td>
-                            <td>
-                              
-                            {record.state === 'complete' ? (
-                              <p className='btn btn-success'>Completed</p>
-                            ) : record.state === 'pending' ? (
-                              <p className='btn btn-danger'>Pending Review</p>
-                            ) : (
-                              // Handle other cases or provide a default
-                              <p className='btn btn-default'>Other State</p>
-                            )}
-
-                              
-                            </td>
-                            <td>{record.reasonRejection}</td>
-
-                          <td>
-                          
-                            {record.state === 'complete' ? (
-                              <button className='btn btn-danger'><i className='fa fa-trash'></i></button>
-                            ) : record.state === 'pending' ? (
-                              <>
-                                <button className='btn btn-success mb-1'><i className='fa fa-check'></i></button>
-                                <button className='btn btn-danger'><i className='fa fa-ban'></i></button>
-                              </>
-                            ) : (
-                              // Handle other cases or provide a default
-                              <p className='btn btn-default'>Other State</p>
-                            )}
-
-                          </td>
-                        </tr>
-                         ))}
-                      </tbody>
-                     
-                    </table>   
-                       ) : (
-                        <p>Loading...</p>
-                     )} 
+                    <div className="card-body px-0 py-1 p-3">
+                       <DataTable data={data}/>
                     </div>
                    <div>
                    </div>

@@ -9,7 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "apexcharts": "^3.44.0",
     "axios": "^1.6.0",
+    "datatables.net": "^1.13.7",
+    "datatables.net-dt": "^1.13.7",
+    "jquery": "^3.7.1",
     "next": "14.0.1",
     "next-auth": "^4.24.4",
     "react": "^18",

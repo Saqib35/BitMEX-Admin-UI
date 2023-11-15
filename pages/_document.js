@@ -43,6 +43,8 @@ export default class MyDocument extends Document {
           <script src="js/scripts/components.js"></script>
           <script src="js/scripts/footer.js"></script>
           <script src="js/scripts/pages/dashboard-analytics.js"></script>
+          <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+          <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
 
         </body>
       </Html>
