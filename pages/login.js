@@ -39,7 +39,7 @@ export default function Login() {
       if (response.ok) {
         // Handle successful login
         const data = await response.json();
-        alert(data.access_token);
+        // alert(data.access_token);
         localStorage.setItem('token', data.access_token);
         router.push('/');
         // console.log(data.access_token);
