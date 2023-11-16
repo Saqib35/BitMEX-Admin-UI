@@ -49,10 +49,9 @@ const DataTable = ({ data, pagination = true }) => {
         <th scope="col" style={{ whiteSpace: 'nowrap' }}>Maximum risk control</th>
         <th scope="col" style={{ whiteSpace: 'nowrap' }}>Operate</th>
         <th scope="col" style={{ whiteSpace: 'nowrap' }}>Close market</th>
-        <th scope="col" style={{ whiteSpace: 'nowrap' }}>Edit</th>
-        <th scope="col" style={{ whiteSpace: 'nowrap' }}>Delete</th>
         <th scope="col" style={{ whiteSpace: 'nowrap' }}>Show profit</th>
         <th scope="col" style={{ whiteSpace: 'nowrap' }}>Show loss</th>
+        <th scope="col" style={{ whiteSpace: 'nowrap' }}>Action</th>
         </tr>
     </thead>
     <tbody>
@@ -83,16 +82,15 @@ const DataTable = ({ data, pagination = true }) => {
             <button className="btn btn-danger" style={{ whiteSpace: 'nowrap' }}>Close the Market</button>
         </td>
         <td>
-            <button className="btn btn-primary">Edit</button>
-        </td>
-        <td>
-            <button className="btn btn-danger">Delete</button>
-        </td>
-        <td>
             <button className="btn btn-success" style={{ whiteSpace: 'nowrap' }}>Show profit</button>
         </td>
         <td>
             <button className="btn btn-secondary" style={{ whiteSpace: 'nowrap' }}>Obvious loss</button>
+        </td>
+        <td>
+        <i className='fa fa-trash text-danger '></i>
+        <i className='fa fa-edit text-success' style={{ marginLeft: '10px' }}></i>
+            
         </td>
         </tr>
         ))}
@@ -101,4 +99,14 @@ const DataTable = ({ data, pagination = true }) => {
   );
 };
 
+// If you want to disable server-side rendering, use the following export:
+export const getServerSideProps = async () => {
+  return {
+    props: {},
+  };
+};
+
+
 export default DataTable;
+
+

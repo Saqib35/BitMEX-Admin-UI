@@ -8,6 +8,13 @@ import { useRouter } from 'next/router'
 const inter = Inter({ subsets: ['latin'] })
 import dynamic from "next/dynamic";
 
+
+// export const getServerSideProps = async () => {
+//   return {
+//     props: {},
+//   };
+// };
+
 export default function Home() {
   const [data, setData] = useState(null);
   const [apiDataCom, setApiDataCom] = useState([]);
@@ -15,6 +22,14 @@ export default function Home() {
   const [apiDataReal, setApiDataReal] = useState([]);
   const { session } = useSession();
   const router = useRouter();
+
+  const [isClient, setIsClient] = useState(false)
+
+
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
+
 
   useEffect(() => {
       const token = localStorage.getItem('token');
@@ -25,12 +40,6 @@ export default function Home() {
       }
       
   }, [router]);
-
-
-
-
-  
-
 
   useEffect(() => {
     async function fetchData() {
@@ -115,6 +124,7 @@ export default function Home() {
   return (
    
     <div>
+      {isClient ? 
         <div className="app-content content">
         <div className="content-overlay" />
         <div className="content-wrapper">
@@ -438,8 +448,9 @@ export default function Home() {
             {/* Dashboard Analytics end */}
           </div>
         </div>
-      </div>
-    
+      </div>  
+    : 'Prerendered'}
     </div>
   );
 }
+
