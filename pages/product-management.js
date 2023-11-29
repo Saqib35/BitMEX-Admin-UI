@@ -9,6 +9,8 @@ import Link from 'next/link';
 const inter = Inter({ subsets: ['latin'] })
 import axios from 'axios';
 import DataTable from '../components/DataTableProductList';
+import GoogleTranslate from '../components/GoogleTranslate';
+
 
 
 export default function Product() {
@@ -37,6 +39,7 @@ export default function Product() {
     <div className="content-overlay" />
     <div className="content-wrapper">
       <div className="content-header row">
+         <GoogleTranslate />
          <Link href="/add-product" className='btn btn-success ml-1 mb-2'>Add Product</Link>
       </div>
       <div className="content-body">

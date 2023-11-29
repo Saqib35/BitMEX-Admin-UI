@@ -8,6 +8,8 @@ import { useRouter } from 'next/router'
 import { toast } from 'react-toastify';
 import axios from 'axios';
 import DataTable from '../components/DataTableWithdrawalDetails';
+import GoogleTranslate from '../components/GoogleTranslate';
+
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -46,6 +48,7 @@ export default function Product() {
     <div className="content-overlay" />
     <div className="content-wrapper">
       <div className="content-header row">
+      <GoogleTranslate />
       </div>
       <div className="content-body">
         <section id="dashboard-analytics">

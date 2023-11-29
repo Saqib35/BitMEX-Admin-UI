@@ -6,6 +6,8 @@ import { useEffect, useState } from 'react'
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/router'
 import DataTable from '../components/DataTableTransactionFlow';
+import GoogleTranslate from '../components/GoogleTranslate';
+
 
 const inter = Inter({ subsets: ['latin'] })
 import axios from 'axios';
@@ -36,6 +38,7 @@ export default function Product() {
     <div className="content-overlay" />
     <div className="content-wrapper">
       <div className="content-header row">
+      <GoogleTranslate />
       </div>
       <div className="content-body">
         <section id="dashboard-analytics">

@@ -1,4 +1,4 @@
-import Head from 'next/head'
+﻿import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
@@ -7,13 +7,14 @@ import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/router'
 const inter = Inter({ subsets: ['latin'] })
 import dynamic from "next/dynamic";
+import GoogleTranslate from '../components/GoogleTranslate';
 
 
-// export const getServerSideProps = async () => {
-//   return {
-//     props: {},
-//   };
-// };
+export const getServerSideProps = async () => {
+  return {
+    props: {},
+  };
+};
 
 export default function Home() {
   const [data, setData] = useState(null);
@@ -24,13 +25,14 @@ export default function Home() {
   const router = useRouter();
 
   const [isClient, setIsClient] = useState(false)
-
+ 
 
   useEffect(() => {
+    
     setIsClient(true)
   }, [])
 
-
+ 
   useEffect(() => {
       const token = localStorage.getItem('token');
   
@@ -129,6 +131,8 @@ export default function Home() {
         <div className="content-overlay" />
         <div className="content-wrapper">
           <div className="content-header row">
+          <GoogleTranslate />
+          
           </div>
           <div className="content-body">
             {/* Dashboard Analytics Start */}

@@ -1,6 +1,8 @@
 import React, { useState,useRef } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import GoogleTranslate from '../components/GoogleTranslate';
+
 
 
 
@@ -203,7 +205,7 @@ const handleSubmit = async (e) => {
     <div className="content-overlay" />
     <div className="content-wrapper">
       <div className="content-header row">
-         
+      <GoogleTranslate />
       </div>
       <div className="content-body">
         <section id="dashboard-analytics">
